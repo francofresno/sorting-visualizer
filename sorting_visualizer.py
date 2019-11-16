@@ -2,14 +2,27 @@ try:
     from tkinter import *
 except ImportError:
     raise ImportError("Se requiere el modulo tkinter")
+""" from sorting_algorithms import *
+ """
+class Ventana:
+    ventana = Tk()
+    infoInput = Label(ventana,text="Ingrese una lista de enteros separados por ',': ")
+    inputBox = Entry(ventana, textvariable = StringVar())
 
-ventana = Tk()
-ventana.minsize(800, 600) 
-infoInput=Label(ventana,text="Ingrese una lista de enteros separados por ',': ")
-infoInput.grid(row=1,column=1)
-ventana.title('Sorting Visualizer')
-variable_string = StringVar()
-caja = Entry(ventana,textvariable=variable_string)
-caja.grid(row=1,column=3)
+    def configurar(self):
+        self.ventana.minsize(800,600)
+        self.ventana.title('Sorting Visualizer')
+        self.infoInput.grid(row=1,column=1)
+        self.inputBox.grid(row=1,column=3)
 
-ventana.mainloop()
+    def iniciar(self):
+        self.ventana.mainloop()
+
+def main():
+    print ("Hello World!")
+"""     ventanaPrincipal = Ventana()
+    ventanaPrincipal.configurar()
+    ventanaPrincipal.iniciar() """
+
+if __name__== "__main__":
+  main()

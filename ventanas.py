@@ -1,27 +1,34 @@
-from abc import ABC, abstractmethod
 try:
     from tkinter import *
 except ImportError:
     raise ImportError("Se requiere el modulo tkinter")
 
-class Ventana(ABC):
+class Ventana():
     ventana = Tk()
+    canvas = Canvas()
+    infoInput = Label()
+    abrirArchivo = Button()
+    mergeSort = Button()
+    quickSort = Button()
+    heapSort = Button()
+    bubbleSort = Button()
 
     def __init__(self,titulo):
         self.ventana.title(titulo)
-        self.ventana.minsize(800,600)
-
-    @abstractmethod
+        self.canvas = Canvas(self.ventana, height=600, width=600, bg="#263D42")
+        self.mergeSort = Button(self.ventana, text="Merge Sort", padx=10, pady=5, fg="white", bg="#263D42")
+        self.quickSort = Button(self.ventana, text="Quick Sort", padx=10, pady=5, fg="white", bg="#263D42")
+        self.heapSort = Button(self.ventana, text="Heap Sort", padx=10, pady=5, fg="white", bg="#263D42")
+        self.bubbleSort = Button(self.ventana, text="Bubble Sort", padx=10, pady=5, fg="white", bg="#263D42")
+        self.abrirArchivo = Button(self.ventana, text="Abrir Archivo", padx=10, pady=5, fg="white", bg="#FF5733")
+        
     def configurar(self):
-        pass
+        self.canvas.pack(fill=BOTH)
+        self.mergeSort.pack(side=LEFT)
+        self.quickSort.pack(side=LEFT)
+        self.heapSort.pack(side=LEFT)
+        self.bubbleSort.pack(side=LEFT)
+        self.abrirArchivo.pack(side=BOTTOM , fill=BOTH)
 
     def iniciar(self):
         self.ventana.mainloop()
-
-class Principal(Ventana):
-
-    def configurar(self):
-        infoInput = Label(self.ventana,text="Ingrese una lista de enteros separados por ',': ")
-        inputBox = Entry(self.ventana, textvariable = StringVar())
-        infoInput.grid(row=1,column=1)
-        inputBox.grid(row=1,column=3)

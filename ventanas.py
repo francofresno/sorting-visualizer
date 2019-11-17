@@ -6,13 +6,7 @@ except ImportError:
 
 class Ventana():
     ventana = Tk()
-    canvas = Canvas()
-    infoInput = Label()
-    abrirArchivo = Button()
-    mergeSort = Button()
-    quickSort = Button()
-    heapSort = Button()
-    bubbleSort = Button()
+    unArchivo = None
 
     def __init__(self,titulo):
         self.ventana.title(titulo)
@@ -35,4 +29,6 @@ class Ventana():
         self.ventana.mainloop()
 
     def abrirUnArchivo(self):
-        unArchivo = filedialog.askopenfilename(initialdir='/',title="Seleccionar Archivo",filetypes=[("Textos", "*.txt")])
+        self.unArchivo = filedialog.askopenfilename(initialdir='/',title="Seleccionar Archivo",filetypes=[("Textos", "*.txt")])
+
+    # if unArchivo is None ...

@@ -1,4 +1,5 @@
 try:
+    from tkinter import filedialog
     from tkinter import *
 except ImportError:
     raise ImportError("Se requiere el modulo tkinter")
@@ -20,7 +21,7 @@ class Ventana():
         self.quickSort = Button(self.ventana, text="Quick Sort", padx=10, pady=5, fg="white", bg="#263D42")
         self.heapSort = Button(self.ventana, text="Heap Sort", padx=10, pady=5, fg="white", bg="#263D42")
         self.bubbleSort = Button(self.ventana, text="Bubble Sort", padx=10, pady=5, fg="white", bg="#263D42")
-        self.abrirArchivo = Button(self.ventana, text="Abrir Archivo", padx=10, pady=5, fg="white", bg="#FF5733")
+        self.abrirArchivo = Button(self.ventana, text="Abrir Archivo", padx=10, pady=5, fg="white", bg="#FF5733", command=self.abrirUnArchivo)
         
     def configurar(self):
         self.canvas.pack(fill=BOTH)
@@ -32,3 +33,6 @@ class Ventana():
 
     def iniciar(self):
         self.ventana.mainloop()
+
+    def abrirUnArchivo(self):
+        unArchivo = filedialog.askopenfilename(initialdir='/',title="Seleccionar Archivo",filetypes=[("Textos", "*.txt")])

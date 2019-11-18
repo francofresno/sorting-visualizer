@@ -37,3 +37,6 @@ class MergeSort:
             j += 1
 
         return lista_nueva_ordenada
+
+    def resetearComparaciones(self):
+        self.comparaciones = 0

@@ -24,3 +24,5 @@ class QuickSort:
 	    lista[indice], lista[fin] = lista[fin], lista[indice]
 	    return indice
 
+    def resetearComparaciones(self):
+        self.comparaciones = 0

@@ -1,5 +1,5 @@
 from sorting_algorithms import *
-from ventanas import *
+from ventana import *
 
 def main():
     ventanaPrincipal = Ventana('Sorting Visualizer')

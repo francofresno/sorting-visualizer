@@ -1,5 +1,6 @@
 class ListaManager:
     lista_numeros = []
+    flag_lista_invalida = False
 
     def txt_a_lista(self, archivo):
         lista_previa = []
@@ -14,6 +15,6 @@ class ListaManager:
         try:
            self.lista_numeros = list(map(int, lista_aplanada))
         except ValueError:
-            print("Todos deben ser numeros")
+            self.flag_lista_invalida = True
         else:
             print(self.lista_numeros)

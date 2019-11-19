@@ -16,5 +16,3 @@ class ListaManager:
            self.lista_numeros = list(map(int, lista_aplanada))
         except ValueError:
             self.flag_lista_invalida = True
-        else:
-            print(self.lista_numeros)

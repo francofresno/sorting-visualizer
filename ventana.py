@@ -59,11 +59,19 @@ class Ventana(ListaManager):
 
     def archivo_a_lista(self):
         self.archivo_ingresado = filedialog.askopenfilename(initialdir='/',title="Seleccionar Archivo",filetypes=[("Textos", "*.txt")])
-        if not self.flag_lista_invalida: 
+        if self.archivo_ingresado is not None: 
             with open(self.archivo_ingresado, "r") as archivo_nuevo:
                 self.txt_a_lista(archivo_nuevo)
+        self.limpiarFeedbackVentana()
+        if self.flag_lista_invalida:
+            self.numeros_ingresados.config(text="LISTA INVÁLIDA! Ingrese otra.")
+        else:
             self.numeros_ingresados.config(text=', '.join(map(str, self.lista_numeros)))
-            self.numeros_ordenados.config(text="")
+
+    def limpiarFeedbackVentana(self):     
+        self.numeros_ordenados.config(text="")
+        self.comp_hechas.config(text="")
+        self.tiempo_transc.config(text="")        
 
     def guardar_archivo(self):
         if self.archivo_resultado is not None:
@@ -71,8 +79,4 @@ class Ventana(ListaManager):
 
     def ordenar(self, algoritmo_a_aplicar):
         algoritmo_a_aplicar.ordenar(self)
-
-
-
-#            Label(self.canvas, text=f.read()).pack()
 

@@ -45,7 +45,7 @@ class Ventana(ListaManager):
                 self.txt_a_lista(archivo_nuevo)
 
     def ordenar(self, algoritmo_a_aplicar):
-        algoritmo_a_aplicar.ordenar(self.lista_numeros)
+        algoritmo_a_aplicar.ordenar(self)
 
 
 

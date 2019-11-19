@@ -4,7 +4,7 @@ class BubbleSort:
         lista = lista_enteros
         tamanio = len(lista) - 1
 
-        for i in range(1, tamanio):
+        for i in range(0, tamanio):
             for j in range(tamanio - i):
                 self.comparaciones += 1
 

@@ -28,7 +28,7 @@ class MergeSort:
                 lista_nueva_ordenada.append(parte_derecha[j])
                 j += 1
                 
-        #Agregamos las dos partes al resultado
+        # Agregamos las dos partes al resultado
         while i < len(parte_izquierda):
             lista_nueva_ordenada.append(parte_izquierda[i])
             i += 1

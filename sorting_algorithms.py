@@ -1,8 +1,8 @@
 from time import *
 
 class Algoritmo:
-    tiempoInicial = None
-    tiempoFinal = None
+    tiempo_inicial = None
+    tiempo_final = None
     tipo_algoritmo = None
     lista_ordenada = []
 
@@ -11,16 +11,10 @@ class Algoritmo:
     
     def ordenar(self, ventana):
         lista_enteros = ventana.lista_numeros
-        self.tiempoInicial = time()
+        self.tiempo_inicial = time()
         self.lista_ordenada = self.tipo_algoritmo.ordenar_numeros(lista_enteros)
-        self.tiempoFinal = time()
-        self.imprimirResultados(ventana)
-#        print("Comparaciones:", self.tipo_algoritmo.comparaciones)
-#        print(self.lista_ordenada)
-#        print("Tiempo: {0:f} segundos".format(self.tiempoFinal - self.tiempoInicial))
+        self.tiempo_final = time()
+        if self.lista_ordenada:
+            ventana.mostrarResultados(self)
         # reset a 0 de la var comparaciones del algoritmo usado
         self.tipo_algoritmo.resetearComparaciones()
-
-    def imprimirResultados(self,ventana):
-        #ventana.permitirGuardar()
-        return 0

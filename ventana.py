@@ -18,7 +18,7 @@ class Ventana(ListaManager):
 
     def __init__(self,titulo):
         self.ventana.title(titulo)
-        self.canvas = Canvas(self.ventana, height=600, width=600, bg="#263D42")
+        self.canvas = Canvas(self.ventana, height=600, width=900, bg="#263D42")
         self.frame = Frame(self.ventana, bg="white")
         self.merge_sort = Button(self.ventana, text="Merge Sort", padx=10, pady=5, fg="white", bg="#263D42", command=partial(self.ordenar,Algoritmo(MergeSort())))
         self.quick_sort = Button(self.ventana, text="Quick Sort", padx=10, pady=5, fg="white", bg="#263D42", command=partial(self.ordenar,Algoritmo(QuickSort())))
@@ -29,21 +29,21 @@ class Ventana(ListaManager):
         self.lista_ing_label = Label(self.frame, text="Lista ingresada:")
         self.lista_ord_label = Label(self.frame, text="Lista ordenada:")
         self.comparaciones_label = Label(self.frame, text="Comparaciones realizadas para ordenar:")
-        self.tiempo_label = Label(self.frame, text="Tiempo transcurrido:")
+        self.tiempo_label = Label(self.frame, text="Tiempo transcurrido (se considerará 0 si es menor a 0.000001):")
         self.numeros_ingresados = Label(self.frame, text="")
         self.numeros_ordenados = Label(self.frame, text="")
         self.comp_hechas = Label(self.frame, text="")
         self.tiempo_transc = Label(self.frame, text="")
 
     def configurar(self):
-        self.ventana.resizable(width=False, height=False)
+        self.ventana.resizable(width=FALSE, height=FALSE)
         self.canvas.pack(fill=BOTH)
         self.frame.place(relwidth=0.8, relheight=0.8, relx=0.1, rely=0.08)
-        self.merge_sort.pack(side=LEFT)
-        self.quick_sort.pack(side=LEFT)
-        self.heap_sort.pack(side=LEFT)
-        self.bubble_sort.pack(side=LEFT)
-        self.selec_archivo.pack(side=BOTTOM , fill=BOTH)
+        self.merge_sort.pack(side=LEFT, fill=BOTH)
+        self.quick_sort.pack(side=LEFT, fill=BOTH)
+        self.heap_sort.pack(side=LEFT, fill=BOTH)
+        self.bubble_sort.pack(side=LEFT, fill=BOTH)
+        self.selec_archivo.pack(side=BOTTOM, fill=BOTH)
         self.save_archivo.pack(side=BOTTOM, fill=BOTH)
         self.lista_ing_label.pack(side=TOP, fill=BOTH)
         self.numeros_ingresados.pack(side=TOP, fill=BOTH)
@@ -80,3 +80,11 @@ class Ventana(ListaManager):
     def ordenar(self, algoritmo_a_aplicar):
         algoritmo_a_aplicar.ordenar(self)
 
+    def mostrarResultados(self, algoritmo_aplicado):
+        lista_ord = ', '.join(map(str, algoritmo_aplicado.lista_ordenada))
+        tiempo = "{0:f} segundos".format(algoritmo_aplicado.tiempo_final - algoritmo_aplicado.tiempo_inicial)
+        comparaciones_realizadas = str(algoritmo_aplicado.tipo_algoritmo.comparaciones)
+
+        self.numeros_ordenados.config(text=lista_ord)
+        self.comp_hechas.config(text=comparaciones_realizadas)
+        self.tiempo_transc.config(text=tiempo)      

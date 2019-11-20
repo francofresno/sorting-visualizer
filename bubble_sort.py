@@ -1,5 +1,7 @@
 class BubbleSort:
     comparaciones = 0
+    nombre = "Bubble Sort"
+
     def ordenar_numeros(self, lista_enteros):
         lista = lista_enteros
         tamanio = len(lista) - 1

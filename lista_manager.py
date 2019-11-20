@@ -14,5 +14,6 @@ class ListaManager:
     def convertirAListaDeInt(self, lista_aplanada):
         try:
            self.lista_numeros = list(map(int, lista_aplanada))
+           self.flag_lista_invalida = False
         except ValueError:
             self.flag_lista_invalida = True

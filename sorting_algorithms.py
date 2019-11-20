@@ -10,7 +10,7 @@ class Algoritmo:
         self.tipo_algoritmo = tipo
     
     def ordenar(self, ventana):
-        lista_enteros = ventana.lista_numeros
+        lista_enteros = ventana.lista_numeros.copy()
         self.tiempo_inicial = time()
         self.lista_ordenada = self.tipo_algoritmo.ordenar_numeros(lista_enteros)
         self.tiempo_final = time()

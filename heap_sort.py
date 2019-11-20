@@ -1,5 +1,7 @@
 class HeapSort:
     comparaciones = 0
+    nombre = "Heap Sort"
+
     def ordenar_numeros(self, lista_enteros):
         lista = lista_enteros
         tamanio = len(lista)

@@ -1,5 +1,7 @@
 class MergeSort:
     comparaciones = 0
+    nombre = "Merge Sort"
+
     def ordenar_numeros(self, lista_enteros):
         if len(lista_enteros) <= 1:
             return lista_enteros

@@ -1,7 +1,9 @@
 # Descripción:
 Proyecto personal que permite visualizar las diferencias de 4 algoritmos de ordenamiento en cuanto a tiempo de procesamiento y cantidad de comparaciones que realizan para obtener el mismo resultado. 
 
-Desarrollado en **Python**. Se utilizó **Tkinter** para la interfaz gráfica.
+- Desarrollado en **Python**. 
+- Se utilizó **Tkinter** para la interfaz gráfica.
+- Se utilizó **unittest** para el desarrollo de test unitarios.
 
 Algoritmos implicados: 
 - Merge Sort
